@@ -3,20 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/ItemFragment">
+    app:startDestination="@id/UsersListFragment">
 
     <fragment
-        android:id="@+id/ItemFragment"
-        android:name="codegene.femicodes.noustask.ui.ItemsFragment"
+        android:id="@+id/UsersListFragment"
+        android:name="codegene.femicodes.noustask.ui.items.UsersListFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_items">
-        
+        tools:layout="@layout/fragment_users">
+
+
+        <action
+            android:id="@+id/action_ItemFragment_to_ItemDetailsFragment"
+            app:destination="@id/UserDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+
     </fragment>
     <fragment
-        android:id="@+id/ItemDetailsFragment"
-        android:name="codegene.femicodes.noustask.ui.ItemDetailsFragment"
+        android:id="@+id/UserDetailsFragment"
+        android:name="codegene.femicodes.noustask.ui.itemDetail.UserDetailsFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_item_details">
+        tools:layout="@layout/fragment_user_details">
+
+        <argument
+            android:name="data"
+            app:argType="codegene.femicodes.noustask.models.User" />
+
 
     </fragment>
 </navigation>
